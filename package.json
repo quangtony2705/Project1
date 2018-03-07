@@ -1,0 +1,50 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "test",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.0",
+    "babel-core": "6.14.0",
+    "body-parser": "^1.18.2",
+    "classnames": "^2.2.5",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-session": "^1.15.6",
+    "jquery": "^3.2.1",
+    "material-ui": "^0.19.4",
+    "moment": "^2.19.2",
+    "mongoose": "^4.12.3",
+    "morgan": "^1.7.0",
+    "multer": "^1.3.0",
+    "pug": "^2.0.0-rc.4",
+    "react": "^16.0.0",
+    "react-axios": "^1.0.3",
+    "react-bootstrap": "^0.31.5",
+    "react-dom": "^16.0.0",
+    "react-js-pagination": "^3.0.0",
+    "react-router-dom": "^4.2.2",
+    "react-tap-event-plugin": "^3.0.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "concurrently": "^3.5.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "14.1.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "4.0.0",
+    "eslint-plugin-react": "6.9.0",
+    "mocha": "^3.0.2",
+    "mz": "^2.4.0",
+    "react-scripts": "^0.9.5",
+    "supertest-as-promised": "^4.0.0"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server.js",
+    "client": "node start-client.js",
+    "dev": "echo \"This command has been deprecated. Use 'npm start'\" && exit 1",
+    "lint": "eslint ."
+  }
+}

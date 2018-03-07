@@ -1,0 +1,85 @@
+#wrapper{
+    position: inherit;
+    top: 0;
+    z-index: 1;
+}
+#page-wrapper{
+    margin-top: 50px;
+    position: initial;
+}
+.panel-body .row{
+    margin-bottom: 10px;
+}
+.panel-footer #btn-panel-footer{
+    position: relative;
+    left: 88%;
+    border-radius:50%;
+    width: 50px;
+    height: 50px;
+}
+.panel-footer .btn:hover{
+    background-color: #b3c1da
+}
+.panel-body .btn:hover{
+    background-color: #eeeeee
+}
+#btnlogin,#btnRegister{
+    float: right
+}
+.group{
+    margin-bottom: 20px
+}
+.user_group{
+    margin-right: 10px
+}
+.txtUser{
+    width: 200px;
+    margin-right: 20px
+}
+.txt-info{
+    margin-right: 20px;
+    margin-bottom: 10px
+}
+.btt-info{
+    width: 100px;
+    margin-right: 20px;
+    float: right
+}
+.txt-add{
+    width: 60%;
+}
+.btt-group{
+    margin-right: 50px;
+}
+.info-group{
+    margin-bottom: 20px
+}
+.btt-Right{
+    margin-bottom: 20px;
+    padding: 20px;
+    margin-right: 50px;
+}
+.btt-Rightedit{
+    width: 100px;
+    float: right;
+    margin-right: 50px;
+}
+.link-back{
+    width: 150px;
+}
+.link{
+    width: 100%;
+    height: 100%;
+}
+.btt-plus{
+    margin-bottom: 20px;
+    float: right;
+
+}
+li{
+    list-style-type: none
+}
+.test{
+    border:blue;
+    border: 5px;
+}

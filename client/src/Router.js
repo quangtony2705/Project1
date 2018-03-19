@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import Login from './components/fLogin';
 import Home from './components/fHome';
 import Register from './components/fRegister';
-import UserGroup from './components/UserGroup';
-import Menu from './components/Menu'
-import User from './components/user'
+import Menu from './components/Menu';
+
 import {
   Switch,
   Route,
@@ -37,9 +36,7 @@ class RouterPage extends Component {
           <Route exact path="/" component={Home}/>
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
-          <Route path="/userGroup" component={UserGroup} />
           <Route path="/menu" component={Menu} />
-          <Route path="/user" component={User} />
         </Switch>
       </div>
     );

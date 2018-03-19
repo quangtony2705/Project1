@@ -6,7 +6,9 @@ var Url = "http://localhost:9000/"
 class Register extends Component {
   state = {
     username: '',
-    password: ''
+    password: '',
+    email: '',
+    phone: '',
   }
   onChange = (e) => {
     this.setState({
@@ -16,26 +18,52 @@ class Register extends Component {
   redirectLogin() {
     this.props.history.push('login')
   }
+  checkEmail(link) {
+    var arr = link.split('@');
+    if (arr.length === 2) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
   handleClick(event) {
     let that = this
     var payload = {
       "username": this.state.username,
-      "password": this.state.password
+      "password": this.state.password,
+      "email": this.state.email,
+      "phone": this.state.phone
     }
     if (this.state.username.length === 0) {
-      alert("Nhap username")
+      alert("Username không được bỏ trống")
     }
     else if (this.state.password.length === 0) {
-      alert("Nhap password")
+      alert("Password không được bỏ trống")
+    }
+    else if (this.state.email.length === 0 || this.checkEmail(this.state.email) === 0) {
+      alert("Email không được bỏ trống hoặc Email không đúng")
+    }
+    else if (this.state.phone.length === 0) {
+      alert("Phone không được bỏ trống")
     }
     else {
-      axios.post(Url + 'insertUser', payload).then(function (response) {
-        if (response.status === 200) {
-          that.redirectLogin();
+      axios.get(Url + 'userExist', {
+        params: {
+          username: this.state.username
         }
-      }).catch(function (error) {
-        console.log(error);
-      });
+      }).then(function (response) {
+        if (response.data === 1) {
+          alert('username da ton tai')
+        } else {
+          axios.post(Url + 'insertUser', payload).then(function (response) {
+            if (response.status === 200) {
+              that.redirectLogin();
+            }
+          }).catch(function (error) {
+            console.log(error);
+          });
+        }
+      })
     }
   }
   render() {
@@ -50,12 +78,20 @@ class Register extends Component {
               <div className="panel-body">
                 <form className="form" role="form">
                   <div className="form-group">
-                    <label htmlFor="email">Username:</label>
+                    <label htmlFor="email">Username*:</label>
                     <input type="text" className="form-control" name="username" value={this.state.username} onChange={e => this.onChange(e)} />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="pwd">Password:</label>
+                    <label htmlFor="pwd">Password*:</label>
                     <input type="password" className="form-control" name="password" value={this.state.password} onChange={e => this.onChange(e)} />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="email">Email*:</label>
+                    <input type="text" className="form-control" name="email" value={this.state.email} onChange={e => this.onChange(e)} />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="email">Phone*:</label>
+                    <input type="text" className="form-control" name="phone" value={this.state.phone} onChange={e => this.onChange(e)} />
                   </div>
                   <div>
                     <label className="custom-control custom-checkbox">

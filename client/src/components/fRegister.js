@@ -32,7 +32,8 @@ class Register extends Component {
       "username": this.state.username,
       "password": this.state.password,
       "email": this.state.email,
-      "phone": this.state.phone
+      "phone": this.state.phone,
+      "enable": "enable"
     }
     if (this.state.username.length === 0) {
       alert("Username không được bỏ trống")

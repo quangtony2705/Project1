@@ -20,9 +20,9 @@ class Home extends Component {
         pPrice: '',
         pType: '',
         productImage: '',
-        fileI: [],
-        pOwner: '',
+        pOwner:'',
     }
+
     componentWillMount() {
         // if (localStorage.user === undefined) {
         //     window.location.href = '/login';
@@ -35,56 +35,17 @@ class Home extends Component {
             [e.target.name]: e.target.value
         })
     }
-    // clearText(e) {
-    //     this.setState({
-    //         roomedit: '',
-    //         cameraedit: '',
-    //         ftpedit: '',
-    //         rtspedit: ''
-    //     })
-    // }
-    //room
-    // createUser(event) {
-    //     var list = this.state.user;
-    //     if (this.state.name.length === 0) {
-    //         alert('Khong duoc bo trong')
-    //     } else {
-    //         list.push(this.state.name);
-    //     }
-    //     this.setState({
-    //         user: list
-    //     });
-
-    // }
+   
     onChangeCmb = (e) => {
         this.setState({
             pType: e.target.value
         })
     }
 
-    handleChange = (e) => {
-        this.setState({ pType: e.target.value });
+    handleChange = (e) =>{
+        this.setState({pType : e.target.value});
     }
-    handlePageChange(pageNumber) {
-        this.setState({ activePage: (pageNumber) });
-        var firstItem = (pageNumber - 1) * this.state.itemsCountPerPage;
-        var lastItem = firstItem + this.state.itemsCountPerPage;
-        var slice = this.state.items.slice(firstItem, lastItem);
-        this.setState({
-            sliceItems: slice,
-            pageNumber: pageNumber
-        })
-        if (this.state.sliceItems.length < 1) {
-            firstItem = (pageNumber - 2) * this.state.itemsCountPerPage;
-            lastItem = firstItem + this.state.itemsCountPerPage;
-            slice = this.state.items.slice(firstItem, lastItem);
-            this.setState({
-                sliceItems: slice,
-                pageNumber: pageNumber
-            })
-            this.setState({ activePage: (pageNumber - 1) });
-        }
-    }
+    
 
     handleClickTest(event) {
         //let that = this
@@ -107,10 +68,10 @@ class Home extends Component {
         }
         else if (this.state.pType.length === 0) {
             alert("Product type is not emtried")
-        } else if (this.state.productImage.length === 0) {
-            alert("Product type is not emtried" + this.fileInput.files[0])
         }
-        
+        else if (this.state.productImage.length === 0) {
+            alert("hình ảnh không được bỏ trống")
+        }
         else {
             axios.get(Url + 'productExist', {
                 params: {
@@ -130,13 +91,6 @@ class Home extends Component {
                 }
             })
         }
-    }
-
-    handleChangeAvatar(e)
-    {
-        this.setState({
-            productImage : this.fileInput.files[0]
-        })
     }
 
     render() {
@@ -175,16 +129,6 @@ class Home extends Component {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="email">hình ảnh*:</label>
-                                {/* <input
-                                    name="productImage"
-                                    onChange={this.handleChangeAvatar}
-                                    type="file"
-                                    className="form-control"
-                                    ref={input => {
-                                        this.fileInput = input;
-                                    }
-                                    }
-                                /> */}
                                 <input type="file" className="form-control" name="productImage" value={this.state.productImage} onChange={e => this.onChange(e)} />
                             </div>
                             <button type="button" className="btn btn-defaul float-right" id="btntest" onClick={() => this.handleClickTest(event)}>Create</button>

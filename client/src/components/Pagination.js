@@ -42,7 +42,7 @@ export default class Pagination extends React.Component {
     }
 
     static defaultProps = {
-      itemsCountPerPage: 10,
+      itemsCountPerPage: '',
       pageRangeDisplayed: 5,
       activePage: 1,
       prevPageText: "⟨",

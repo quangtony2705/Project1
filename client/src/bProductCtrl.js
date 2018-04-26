@@ -3,13 +3,12 @@ var router = express();
 var session = require('express-session');
 var multer = require('multer');
 var path = require('path');
-
 var storage = multer.diskStorage({
       destination: function (req, file, cb) {
             cb(null, './client/public/uploads/');
       },
       filename: function (req, file, cb) {
-            cb(null, file.originalname);
+            cb(null,path.extname(file.originalname));
       }
 });
 
@@ -42,22 +41,12 @@ router.get('/loadproduct', function (req, res) {
             res.json(response)
       })
 });
-router.get('/searchproduct', function (req, res) {
-      if (req.query.pType === "all") {
-            Model.products.find({ pName: { "$regex": req.query.pName, "$options": "i" } }, function (err, response) {
-                  res.json(response)
-            })
-      }
-      else{
-            Model.products.find({ pName: { "$regex": req.query.pName, "$options": "i"},pType:  req.query.pType }, function (err, response) {
-                  res.json(response)
-            })
-      }
-});
 
 
 router.post("/insertProduct", upload.single('productImage'), (req, res, next) => {
+      //res.send(req.body)
       var productInfo = req.body;
+      
       if (!productInfo.pName || !productInfo.pStatus || !productInfo.pPrice || !productInfo.pType) {
             res.send('not be emtried');
       } else {
@@ -73,7 +62,7 @@ router.post("/insertProduct", upload.single('productImage'), (req, res, next) =>
                   if (err)
                         res.send('Error');
                   else
-                        res.send(products);
+                        res.send(req.file);
             });
       }
 });
@@ -117,11 +106,6 @@ router.put('/updateProduct', function (req, res) {
 });
 router.get('/countProduct', function (req, res) {
       Model.products.count(function (err, response) {
-            res.json(response)
-      });
-});
-router.get('/countProductByType', function (req, res) {
-      Model.products.count({ pType: req.query.pType }, function (err, response) {
             res.json(response)
       });
 });

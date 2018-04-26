@@ -35,7 +35,7 @@ class Home extends Component {
         let that = this
         axios.get(Url + 'loadProductsByMenu', {
             params: {
-                loai: "phone"
+                loai: "maytinh"
             }
         }).then(function (response) {
             that.setState({

@@ -5,9 +5,6 @@ class Menu extends Component {
     render() {
         return (
             <nav className="navbar navbar-default navbar-static-top" role="navigation">
-                <div className="navbar-header">
-                    <a className="navbar-brand brand-logo" href="/"><img className="logo" src={require('../../public/images/logo.PNG')} alt="logo" /> </a>
-                </div>
                 <ul className="nav navbar-top-links navbar-right">
 
                     <li className="dropdown">
@@ -17,6 +14,9 @@ class Menu extends Component {
                         <ul className="dropdown-menu dropdown-user">
                             <li>
                                 <a href="#"><i className="fa fa-user fa-fw"></i> User Profile</a>
+                            </li>
+                            <li>
+                                <a href="/createproduct"><i className="fa fa-fw"></i>Create Product</a>
                             </li>
                             <li className="divider"></li>
                             <li>
@@ -37,44 +37,19 @@ class Menu extends Component {
                                 </div>
                             </li>
                             <span>
-                                <div class="panel-group">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" href="#collapse1">Công nghệ</a>
+                                <div className="panel-group">
+                                    <div className="panel panel-default">
+                                        <div className="panel-heading">
+                                            <h4 className="panel-title">
+                                                <a data-toggle="collapse" href="#collapse1">DashBoard</a>
                                             </h4>
                                         </div>
-                                        <div id="collapse1" class="panel-collapse collapse">
-                                            <div class="panel-body"><a href="#">Điện thoại</a></div>
-                                            <div class="panel-body"><a href="#">Máy tính</a></div>
+                                        <div id="collapse1" className="panel-collapse collapse">
+                                            <div className="panel-body"><a href="/user">User Management</a></div>
+                                            <div className="panel-body"><a href="/product">Product Management</a></div>
+                                            <div className="panel-body"><a href="/fMenu">Menu Management</a></div>
                                         </div>
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" href="#collapse2">Du lịch</a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapse2" class="panel-collapse collapse">
-                                            <div class="panel-body"><a href="#">Trong nước</a></div>
-                                            <div class="panel-body"><a href="#">Ngoài nước</a></div>
-                                        </div>
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" href="#collapse3">Thời trang</a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapse3" class="panel-collapse collapse">
-                                            <div class="panel-body"><a href="#">Nam</a></div>
-                                            <div class="panel-body"><a href="#">Nữ</a></div>
-                                        </div>
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" href="#collapse4">Mỹ phẩm</a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapse4" class="panel-collapse collapse">
-                                            <div class="panel-body"><a href="#">Làm Đẹp</a></div>
-                                            <div class="panel-body"><a href="#">Dụng cụ</a></div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </span>

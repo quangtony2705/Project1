@@ -33,9 +33,9 @@ class Home extends Component {
         //     window.location.href = '/login';
         // }
         let that = this
-        axios.get(Url + 'loadProductsByMenu', {
+        axios.get(Url + 'loadRoomById', {
             params: {
-                loai: "phone"
+                loai: "trongnuoc"
             }
         }).then(function (response) {
             that.setState({
